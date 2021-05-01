@@ -1,9 +1,8 @@
-package numbers;
+package org.rabestro.numbers;
 
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Set;
-import java.util.StringJoiner;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -57,7 +56,7 @@ public enum Property implements Predicate<NaturalNumber> {
 
     public static String getCard(NaturalNumber number) {
         return Arrays.stream(Property.values())
-                .map(property -> String.format("%6s: %b%n", property.name().toLowerCase(), property.test(number)))
+                .map(property -> String.format("%12s: %b%n", property.name().toLowerCase(), property.test(number)))
                 .collect(Collectors.joining("", "Properties of " + number + "\n", ""));
     }
 

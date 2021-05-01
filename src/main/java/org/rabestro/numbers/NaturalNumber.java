@@ -1,4 +1,4 @@
-package numbers;
+package org.rabestro.numbers;
 
 import java.math.BigInteger;
 import java.util.stream.IntStream;
@@ -7,6 +7,18 @@ public class NaturalNumber extends BigInteger {
 
     public NaturalNumber(String value) {
         super(value);
+    }
+
+    public static boolean isNatural(String value) {
+        return value.chars().allMatch(Character::isDigit);
+    }
+
+    public static NaturalNumber next(NaturalNumber index) {
+        return new NaturalNumber(index.add(ONE).toString());
+    }
+
+    public static NaturalNumber valueOf(long number) {
+        return new NaturalNumber(Long.toString(number));
     }
 
     public boolean isEven() {
@@ -35,13 +47,5 @@ public class NaturalNumber extends BigInteger {
 
     public String getDigits() {
         return toString();
-    }
-
-    public static boolean isNatural(String value) {
-        return value.chars().allMatch(Character::isDigit);
-    }
-
-    public static NaturalNumber next(NaturalNumber index) {
-        return (NaturalNumber) index.add(ONE);
     }
 }

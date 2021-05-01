@@ -1,4 +1,4 @@
-package numbers;
+package org.rabestro.numbers;
 
 import java.text.MessageFormat;
 import java.util.*;

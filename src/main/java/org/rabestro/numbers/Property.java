@@ -35,7 +35,8 @@ public enum Property implements Predicate<NaturalNumber> {
             }
         }
         return true;
-    });
+    }),
+    PANDIGITAL(nummber -> nummber.digits().distinct().count() == 10);
 
     public static final Set<Set<String>> MUTUALLY_EXCLUSIVE = Stream.concat(
             Arrays.stream(values()).map(Enum::name).map(name -> Set.of(name, "-" + name)),
@@ -57,7 +58,7 @@ public enum Property implements Predicate<NaturalNumber> {
     public static String getCard(NaturalNumber number) {
         return Arrays.stream(Property.values())
                 .map(property -> String.format("%12s: %b%n", property.name().toLowerCase(), property.test(number)))
-                .collect(Collectors.joining("", "Properties of " + number + "\n", ""));
+                .collect(Collectors.joining("", String.format("Properties of %,d%n", number), ""));
     }
 
     public static String allInLine(NaturalNumber number) {
@@ -65,7 +66,7 @@ public enum Property implements Predicate<NaturalNumber> {
                 .filter(property -> property.test(number))
                 .map(Enum::name)
                 .map(String::toLowerCase)
-                .collect(Collectors.joining(", ", number.toString() + " is ", ""));
+                .collect(Collectors.joining(", ", String.format("%,16d is ", number), ""));
     }
 
     @Override

@@ -17,10 +17,6 @@ public class NaturalNumber extends BigInteger {
         return new NaturalNumber(index.add(ONE).toString());
     }
 
-    public static NaturalNumber valueOf(long number) {
-        return new NaturalNumber(Long.toString(number));
-    }
-
     public boolean isEven() {
         return mod(TWO).equals(ZERO);
     }
@@ -31,10 +27,6 @@ public class NaturalNumber extends BigInteger {
 
     public int firstDigit() {
         return Character.getNumericValue(toString().charAt(0));
-    }
-
-    public boolean hasDigit(int digit) {
-        return toString().indexOf(Character.forDigit(digit, 10)) != -1;
     }
 
     public IntStream digits() {

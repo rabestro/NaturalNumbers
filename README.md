@@ -99,3 +99,26 @@ Enter a request: 1 2 neon
                1 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, automorphic, neon
                9 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, neon
 ```
+
+### Happy Numbers
+
+```
+Enter a request: 1 15 happy
+
+               1 is odd, duck, palindromic, spy, harshad, armstrong, jumping, adam, disarium, square, automorphic, neon, happy
+               7 is odd, buzz, duck, palindromic, spy, harshad, armstrong, jumping, disarium, happy
+              10 is even, duck, harshad, jumping, adam, happy
+              13 is odd, duck, adam, happy
+              19 is odd, duck, happy
+              23 is odd, duck, jumping, happy
+              28 is even, buzz, duck, happy
+              31 is odd, duck, adam, happy
+              32 is even, duck, jumping, happy
+              44 is even, duck, palindromic, happy
+              49 is odd, buzz, duck, square, happy
+              68 is even, duck, happy
+              70 is even, buzz, duck, harshad, happy
+              79 is odd, duck, happy
+              82 is even, duck, happy
+```
+

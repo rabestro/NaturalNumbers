@@ -2,11 +2,13 @@ package org.rabestro.numbers;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 public enum Property implements Predicate<NaturalNumber> {
@@ -42,13 +44,14 @@ public enum Property implements Predicate<NaturalNumber> {
     DISARIUM(x -> {
         final var number = x.toString();
         return IntStream.range(0, number.length())
-                .mapToObj(i-> BigInteger.valueOf(Character.getNumericValue(number.charAt(i))).pow(i+1))
+                .mapToObj(i -> BigInteger.valueOf(Character.getNumericValue(number.charAt(i))).pow(i + 1))
                 .reduce(BigInteger.ZERO, BigInteger::add).equals(x);
     }),
     SQUARE(number -> number.sqrt().pow(2).equals(number)),
     SUNNY(number -> Property.SQUARE.test(number.next())),
     AUTOMORPHIC(number -> number.multiply(number).toString().endsWith(number.toString())),
-    NEON(number -> number.pow(2).toString().chars().map(Character::getNumericValue).sum() == number.longValue());
+    NEON(number -> number.pow(2).toString().chars().map(Character::getNumericValue).sum() == number.longValue()),
+    HAPPY(number -> isHappy(number.longValue()));
 
     public static final Set<Set<String>> MUTUALLY_EXCLUSIVE = Stream.concat(
             Arrays.stream(values()).map(Enum::name).map(name -> Set.of(name, "-" + name)),
@@ -84,5 +87,22 @@ public enum Property implements Predicate<NaturalNumber> {
     @Override
     public boolean test(NaturalNumber number) {
         return hasProperty.test(number);
+    }
+
+    private static boolean isHappy(long number) {
+        final var sequence = new LinkedHashSet<Long>();
+        return LongStream
+                .iterate(number, i -> !sequence.contains(i), Property::happyNext)
+                .peek(sequence::add)
+                .anyMatch(i -> i == 1);
+    }
+
+    private static long happyNext(long number) {
+        long result = 0;
+        for (long i = number; i > 0; i /= 10) {
+            int digit = (int) (i % 10);
+            result += digit * digit;
+        }
+        return result;
     }
 }

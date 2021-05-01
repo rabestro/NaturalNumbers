@@ -69,7 +69,7 @@ public enum Property implements Predicate<NaturalNumber> {
     }
 
     @Override
-    public boolean test(NaturalNumber naturalNumber) {
-        return false;
+    public boolean test(NaturalNumber number) {
+        return hasProperty.test(number);
     }
 }

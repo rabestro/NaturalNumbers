@@ -13,8 +13,8 @@ public class NaturalNumber extends BigInteger {
         return value.chars().allMatch(Character::isDigit);
     }
 
-    public static NaturalNumber next(NaturalNumber index) {
-        return new NaturalNumber(index.add(ONE).toString());
+    public NaturalNumber next() {
+        return new NaturalNumber(this.add(ONE).toString());
     }
 
     public boolean isEven() {

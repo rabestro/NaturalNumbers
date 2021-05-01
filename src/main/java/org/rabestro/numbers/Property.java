@@ -51,7 +51,8 @@ public enum Property implements Predicate<NaturalNumber> {
     SUNNY(number -> Property.SQUARE.test(number.next())),
     AUTOMORPHIC(number -> number.multiply(number).toString().endsWith(number.toString())),
     NEON(number -> number.pow(2).toString().chars().map(Character::getNumericValue).sum() == number.longValue()),
-    HAPPY(number -> isHappy(number.longValue()));
+    HAPPY(number -> isHappy(number.longValue())),
+    SAD(number -> !isHappy(number.longValue()));
 
     public static final Set<Set<String>> MUTUALLY_EXCLUSIVE = Stream.concat(
             Arrays.stream(values()).map(Enum::name).map(name -> Set.of(name, "-" + name)),

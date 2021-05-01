@@ -121,4 +121,23 @@ Enter a request: 1 15 happy
               79 is odd, duck, happy
               82 is even, duck, happy
 ```
+### Sad Numbers
+```
+Enter a request: 1 15 sad
 
+               2 is even, duck, palindromic, spy, harshad, armstrong, jumping, adam, disarium, sad
+               3 is odd, duck, palindromic, spy, harshad, armstrong, jumping, adam, disarium, sunny, sad
+               4 is even, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, sad
+               5 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, automorphic, sad
+               6 is even, duck, palindromic, spy, harshad, armstrong, jumping, disarium, automorphic, sad
+               8 is even, duck, palindromic, spy, harshad, armstrong, jumping, disarium, sunny, sad
+               9 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, neon, sad
+              11 is odd, duck, palindromic, adam, sad
+              12 is even, duck, harshad, jumping, adam, sad
+              14 is even, buzz, duck, sad
+              15 is odd, duck, sunny, sad
+              16 is even, duck, square, sad
+              17 is odd, buzz, duck, sad
+              18 is even, duck, harshad, sad
+              20 is even, duck, harshad, adam, sad
+```

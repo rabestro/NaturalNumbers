@@ -64,3 +64,38 @@ Enter a request: 1 15 square
              225 is odd, duck, gapful, harshad, square
 ```
 
+### Sunny Number
+
+```
+Enter a request: 1 20 sunny
+
+               3 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, sunny
+               8 is even, duck, palindromic, spy, harshad, armstrong, jumping, disarium, sunny
+              15 is odd, duck, sunny
+              24 is even, duck, harshad, sunny
+              35 is odd, buzz, duck, sunny
+              48 is even, duck, harshad, sunny
+              63 is odd, buzz, duck, harshad, sunny
+              80 is even, duck, harshad, sunny
+              99 is odd, duck, palindromic, sunny
+             120 is even, duck, gapful, harshad, sunny
+             143 is odd, duck, gapful, sunny
+             168 is even, buzz, duck, sunny
+             195 is odd, duck, gapful, harshad, sunny
+             224 is even, buzz, duck, harshad, sunny
+             255 is odd, duck, sunny
+             288 is even, duck, harshad, sunny
+             323 is odd, duck, palindromic, jumping, sunny
+             360 is even, duck, gapful, harshad, sunny
+             399 is odd, buzz, duck, harshad, sunny
+             440 is even, duck, gapful, harshad, sunny
+```
+
+### Neon Number
+
+```
+Enter a request: 1 2 neon
+
+               1 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, automorphic, neon
+               9 is odd, duck, palindromic, spy, harshad, armstrong, jumping, disarium, square, neon
+```

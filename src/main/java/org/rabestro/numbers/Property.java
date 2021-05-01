@@ -44,6 +44,7 @@ public enum Property implements Predicate<NaturalNumber> {
                 .mapToObj(i-> BigInteger.valueOf(Character.getNumericValue(number.charAt(i))).pow(i+1))
                 .reduce(BigInteger.ZERO, BigInteger::add).equals(x);
     }),
+    SQUARE(number -> number.sqrt().pow(2).equals(number)),
     AUTOMORPHIC(number -> number.multiply(number).toString().endsWith(number.toString()));
 
     public static final Set<Set<String>> MUTUALLY_EXCLUSIVE = Stream.concat(

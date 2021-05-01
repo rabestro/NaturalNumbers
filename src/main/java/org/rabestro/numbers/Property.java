@@ -14,7 +14,7 @@ public enum Property implements Predicate<NaturalNumber> {
     ODD(Predicate.not(NaturalNumber::isEven)),
     BUZZ(number -> number.dividedBy(7) || number.lastDigit() == 7),
     DUCK(number -> number.getDigits().indexOf('0') != 0),
-    PALINDROMIC(number -> new StringBuilder(number.getDigits()).reverse().toString().equals(number.getDigits())),
+    PALINDROMIC(number -> number.reverse().equals(number)),
     GAPFUL(number -> number.compareTo(BigInteger.valueOf(99)) > 0 &&
             number.dividedBy(number.firstDigit() * 10L + number.lastDigit())),
     SPY(number -> number.digits().sum() == number.digits().reduce(1, (a, b) -> a * b)),
@@ -38,6 +38,7 @@ public enum Property implements Predicate<NaturalNumber> {
         return true;
     }),
     PANDIGITAL(nummber -> nummber.digits().distinct().count() == 10),
+    ADAM(number -> number.pow2().reverse().equals(number.reverse().pow2())),
     DISARIUM(x -> {
         final var number = x.toString();
         return IntStream.range(0, number.length())

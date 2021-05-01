@@ -40,4 +40,12 @@ public class NaturalNumber extends BigInteger {
     public String getDigits() {
         return toString();
     }
+
+    public NaturalNumber reverse() {
+        return new NaturalNumber(new StringBuilder(toString()).reverse().toString());
+    }
+
+    public NaturalNumber pow2() {
+        return new NaturalNumber(pow(2).toString());
+    }
 }

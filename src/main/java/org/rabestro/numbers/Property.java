@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public enum Property implements Predicate<NaturalNumber> {
@@ -36,7 +37,14 @@ public enum Property implements Predicate<NaturalNumber> {
         }
         return true;
     }),
-    PANDIGITAL(nummber -> nummber.digits().distinct().count() == 10);
+    PANDIGITAL(nummber -> nummber.digits().distinct().count() == 10),
+    DISARIUM(x -> {
+        final var number = x.toString();
+        return IntStream.range(0, number.length())
+                .mapToObj(i-> BigInteger.valueOf(Character.getNumericValue(number.charAt(i))).pow(i+1))
+                .reduce(BigInteger.ZERO, BigInteger::add).equals(x);
+    }),
+    AUTOMORPHIC(number -> number.multiply(number).toString().endsWith(number.toString()));
 
     public static final Set<Set<String>> MUTUALLY_EXCLUSIVE = Stream.concat(
             Arrays.stream(values()).map(Enum::name).map(name -> Set.of(name, "-" + name)),
